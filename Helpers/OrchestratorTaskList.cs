@@ -24,8 +24,9 @@ namespace taskTracker.Helpers
             ListTask.Add(newTask);
         }
 
-        public void Update(TaskAssignment task)
+        public void Update()
         {
+
             ListTask[task.Id] = task;
         }
 

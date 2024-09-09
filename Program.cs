@@ -25,6 +25,27 @@ while (option != 0)
         case 2:
             orchestrator.Add();
             break;
+        case 3:
+            orchestrator.Update();
+            break;
+        case 4:
+            orchestrator.Add();
+            break;
+        case 5:
+            orchestrator.Add();
+            break;
+        case 6:
+            orchestrator.Add();
+            break;
+        case 7:
+            orchestrator.Add();
+            break;
+        case 8:
+            orchestrator.Add();
+            break;
+        case 9:
+            orchestrator.Add();
+            break;
         default:
             Menu.ShowOptions();
             break;

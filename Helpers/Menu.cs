@@ -21,6 +21,7 @@ namespace taskTracker.Helpers
         public static void ShowHelp()
         {
             Console.Clear();
+            Console.WriteLine("0. Exit");
             Console.WriteLine("1. List Task");
             Console.WriteLine("2. Add Task");
             Console.WriteLine("3. Update Task");
@@ -29,6 +30,7 @@ namespace taskTracker.Helpers
             Console.WriteLine("6. List Task Todo");
             Console.WriteLine("7. List Task In Progress");
             Console.WriteLine("8. List Task Done");
+            Console.WriteLine("9. Help");
             Console.WriteLine("-------------------------------------");
         }
     }
