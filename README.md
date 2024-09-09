@@ -31,7 +31,8 @@ The list of commands and their usage is given below:
 
 # Adding a new task
 task-cli add "Buy groceries"
-# Output: Task added successfully (ID: 1)
+# Output: 
+Task added successfully (ID: 1)
 
 # Updating and deleting tasks
 task-cli update 1 "Buy groceries and cook dinner"
