@@ -2,36 +2,45 @@ namespace taskTracker.Helpers
 {
     public static class Menu
     {
-        public static Byte ShowOptions()
+        public static string[] ShowOptions()
         {
-            Byte option = 255;
-            bool isSelected = false;
-            Console.Clear();
-            Console.WriteLine("Enter the option: ");
+            string[] parameters = null;
+            bool isCorrect = false;
+            string command;
 
-            while (!isSelected)
+            while (!isCorrect)
             {
-                var enterOption = Console.ReadLine();
-                isSelected = Byte.TryParse(enterOption, out option);
+                Console.Clear();
+                Console.WriteLine("task-cli => [help]");
+                command = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(command))
+                {
+                    parameters = command.Split(" ");
+                    isCorrect = parameters.Length > 0 && parameters.Length <= 2;
+                }
             }
 
-            return option;
+            return parameters;
         }
 
         public static void ShowHelp()
         {
             Console.Clear();
-            Console.WriteLine("0. Exit");
-            Console.WriteLine("1. List Task");
-            Console.WriteLine("2. Add Task");
-            Console.WriteLine("3. Update Task");
-            Console.WriteLine("4. Delete Task");
-            Console.WriteLine("5. List all task");
-            Console.WriteLine("6. List Task Todo");
-            Console.WriteLine("7. List Task In Progress");
-            Console.WriteLine("8. List Task Done");
-            Console.WriteLine("9. Help");
-            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Type any below options:");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("- update <id_task> <Description>");
+            Console.WriteLine("- delete <id_task>");
+            Console.WriteLine("- mark-in-progress <id_task>");
+            Console.WriteLine("- mark-done <id_task>");
+            Console.WriteLine("- add <Description>");
+            Console.WriteLine("- list");
+            Console.WriteLine("- list done");
+            Console.WriteLine("- list todo");
+            Console.WriteLine("- list inprogress");
+            Console.WriteLine("- help");
+            Console.WriteLine("- exit");
+            Console.WriteLine("------------------------------------------");
         }
     }
 }

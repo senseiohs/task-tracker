@@ -5,51 +5,31 @@ Console.WriteLine("Welcome to task tracker program!");
 
 //Open file .json with our data
 var orchestrator = new OrchestratorTaskList();
-orchestrator.ListTask = TaskJsonFileProcess.GetTaskList();
+orchestrator.TaskList = TaskJsonFileProcess.GetTaskList();
 
-Byte option = 255;
+string[] parameters;
+bool continueProcess = false;
 
-while (option != 0)
+while (!continueProcess)
 {
-    option = Menu.ShowOptions();
-    switch (option)
+    parameters = Menu.ShowOptions();
+    switch (parameters.Length)
     {
-        case 0:
-            Console.Clear();
-            Console.WriteLine("Press Key to continue...");
-            Console.ReadLine();
-            break;
         case 1:
-            orchestrator.ShowTaskList();
+            continueProcess = orchestrator.ProcessOneParameters(parameters[0].ToLower());
             break;
         case 2:
-            orchestrator.Add();
+            continueProcess = orchestrator.ProcessTwoParameters(parameters);
             break;
         case 3:
-            orchestrator.Update();
-            break;
-        case 4:
-            orchestrator.Add();
-            break;
-        case 5:
-            orchestrator.Add();
-            break;
-        case 6:
-            orchestrator.Add();
-            break;
-        case 7:
-            orchestrator.Add();
-            break;
-        case 8:
-            orchestrator.Add();
-            break;
-        case 9:
-            orchestrator.Add();
+            continueProcess = orchestrator.ProcessThreeParameters(parameters);
             break;
         default:
             Menu.ShowOptions();
             break;
     }
+    Console.WriteLine("Press any key to continue...");
+    Console.ReadKey();
 }
 
-TaskJsonFileProcess.SaveTaskList(orchestrator.ListTask);
+TaskJsonFileProcess.SaveTaskList(orchestrator.TaskList);
